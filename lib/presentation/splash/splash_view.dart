@@ -7,7 +7,7 @@ import '../resources/color_manager.dart';
 import '../resources/route_manager.dart';
 
 class SplashView extends StatefulWidget {
-  const SplashView({Key? key}) : super(key: key);
+  const SplashView({super.key});
 
   @override
   // ignore: library_private_types_in_public_api

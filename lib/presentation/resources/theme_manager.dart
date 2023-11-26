@@ -58,14 +58,14 @@ ThemeData getAppThemeData() {
     //text theme
 
     textTheme: TextTheme(
-      headline1: getBold(
+      displayLarge: getBold(
           fontSize: FontSize.s16, fontColor: ColorManager.darkGrey), //H1
-      headline2:
+      displayMedium:
           getSemiBold(fontSize: FontSize.s12, fontColor: ColorManager.darkGrey),
-      subtitle1:
+      titleMedium:
           getMedium(fontSize: FontSize.s14, fontColor: ColorManager.grey), //p
-      caption: getRegular(fontSize: FontSize.s17, fontColor: ColorManager.grey),
-      bodyText1:
+      bodySmall: getRegular(fontSize: FontSize.s17, fontColor: ColorManager.grey),
+      bodyLarge:
           getRegular(fontSize: FontSize.s12, fontColor: ColorManager.grey), //p
     ),
     //inputdecoration theme(text form field)

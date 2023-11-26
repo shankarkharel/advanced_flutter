@@ -48,7 +48,7 @@ class RouteGenerator {
 }
 
 class DefaultRoute extends StatelessWidget {
-  const DefaultRoute({Key? key}) : super(key: key);
+  const DefaultRoute({super.key});
 
   @override
   Widget build(BuildContext context) {

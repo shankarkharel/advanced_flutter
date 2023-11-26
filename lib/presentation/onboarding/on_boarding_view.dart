@@ -10,7 +10,7 @@ import '../resources/string_manager.dart';
 import '../resources/values_manager.dart';
 
 class OnBoardingView extends StatefulWidget {
-  const OnBoardingView({Key? key}) : super(key: key);
+  const OnBoardingView({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -57,24 +57,27 @@ class _OnBoardingViewState extends State<OnBoardingView> {
       return StreamBuilder<SliderViewObject>(
         stream: _boardingViewModal.outputSliderViewObject,
         builder: (context, snapshot) {
-          return getContentWidget(sliderViewObject: snapshot.data!);
+          return getContentWidget(sliderViewObject: snapshot.data);
         },
       );
     });
   }
 
   Widget getContentWidget({SliderViewObject? sliderViewObject}) {
+    if (sliderViewObject == null) {
+      return const SizedBox(
+        height: 0,
+      );
+    }
     return Scaffold(
-      
       appBar: AppBar(
         backgroundColor: ColorManager.white,
         foregroundColor: ColorManager.white,
         elevation: AppSize.s0,
       ),
       body: PageView.builder(
-        
         controller: pageController,
-        itemCount: sliderViewObject!.numOfSlides,
+        itemCount: sliderViewObject.numOfSlides,
         itemBuilder: ((context, index) {
           return OnBoardingPage(sliderViewObject.sliderObject);
         }),
@@ -150,7 +153,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 // ignore: must_be_immutable
 class OnBoardingPage extends StatelessWidget {
   final SliderObject boardingObject;
-  const OnBoardingPage(this.boardingObject, {Key? key}) : super(key: key);
+  const OnBoardingPage(this.boardingObject, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -164,13 +167,13 @@ class OnBoardingPage extends StatelessWidget {
           padding: const EdgeInsets.all(AppPadding.p8),
           child: Text(boardingObject.title,
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.headline1),
+              style: Theme.of(context).textTheme.displayLarge),
         ),
         Padding(
           padding: const EdgeInsets.all(AppPadding.p8),
           child: Text(boardingObject.subtitle,
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.headline2),
+              style: Theme.of(context).textTheme.displayMedium),
         ),
         const SizedBox(
           height: AppSize.s20,
